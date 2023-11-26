@@ -2,8 +2,8 @@ pub contract ArticleStore {
 
   pub var articles: [String]
 
-  pub fun addConfession(confessionToAdd: String) {
-    self.articles.append(confessionToAdd)
+  pub fun addArticle(articleToAdd: String) {
+    self.articles.append(articleToAdd)
   }
 
   init() {
