@@ -1,7 +1,8 @@
 {
 	"contracts": {
 		"ArticleStore": "cadence/contracts/ArticleStore.cdc",
-		"HelloWorld": "cadence/contracts/HelloWorld.cdc"
+		"HelloWorld": "cadence/contracts/HelloWorld.cdc",
+		"TokenRecord": "cadence/contracts/TokenRecord.cdc"
 	},
 	"networks": {
 		"emulator": "127.0.0.1:3569",
@@ -25,7 +26,8 @@
 		"emulator": {
 			"default": [
 				"ArticleStore",
-				"HelloWorld"
+				"HelloWorld",
+				"TokenRecord"
 			]
 		}
 	}
