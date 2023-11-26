@@ -2,8 +2,10 @@ import Head from 'next/head'
 import * as fcl from '@onflow/fcl'
 import useCurrentUser from '../hooks/useCurrentUser'
 import clsx from 'clsx'
+import { useRouter } from 'next/router'
 
 export default function Home() {
+  const router = useRouter()
   const { loggedIn, addr } = useCurrentUser()
 
 
@@ -22,7 +24,7 @@ export default function Home() {
 
         <button
           onClick={
-            loggedIn ? fcl.unauthenticate : fcl.authenticate
+            loggedIn ? () => router.push("/home") : fcl.authenticate
           }
           className={
             clsx(
