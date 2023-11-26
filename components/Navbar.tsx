@@ -4,14 +4,22 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { faker } from "@faker-js/faker"
+import { useEffect, useState } from 'react'
 
 export default function Navbar() {
     const user = useCurrentUser()
+    const [token, setToken] = useState(0);
+
 
     const LINKS = [
         { name: "Home", href: "/home" },
         { name: "Write News", href: "/new" }
     ]
+
+
+    useEffect(() => {
+        setToken(faker.number.int({ min: 0, max: 100 }))
+    }, [])
 
     return (
         <div className='flex px-6 items-center justify-between gap-4 py-4 border-b-2 border-zinc-700'>
@@ -39,7 +47,7 @@ export default function Navbar() {
                 <div className={clsx(
                     user.addr ? "block" : "hidden",
                 )}>
-                    🪙 {faker.number.int({ min: 0, max: 100 })}
+                    🪙 {token}
                 </div>
                 <button className={clsx(
                     'px-4 py-1 rounded-md text-white',
