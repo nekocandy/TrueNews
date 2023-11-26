@@ -35,16 +35,23 @@ export default function Navbar() {
                 }
             </div>
 
-            <button className={clsx(
-                'px-4 py-1 rounded-md text-white',
-                user.addr ? 'bg-red-400 ' : 'bg-green-400 '
-            )} onClick={
-                user.addr ? fcl.unauthenticate : fcl.authenticate
-            }>
-                {
-                    user.addr ? 'Log Out' : 'Log In'
-                }
-            </button>
+            <div className='flex items-center gap-4'>
+                <div className={clsx(
+                    user.addr ? "block" : "hidden",
+                )}>
+                    🪙 {faker.number.int({ min: 0, max: 100 })}
+                </div>
+                <button className={clsx(
+                    'px-4 py-1 rounded-md text-white',
+                    user.addr ? 'bg-red-400 ' : 'bg-green-400 '
+                )} onClick={
+                    user.addr ? fcl.unauthenticate : fcl.authenticate
+                }>
+                    {
+                        user.addr ? 'Log Out' : 'Log In'
+                    }
+                </button>
+            </div>
         </div>
     )
 }
