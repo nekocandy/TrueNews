@@ -46,10 +46,14 @@ export default function HomePage() {
             }
             <div className="grid grid-cols-3 gap-8">
                 {articles.map((article, i) => {
-                    return <li key={i}>
+                    return <div className="cursor-pointer bg-gray-200 rounded-md p-6 flex flex-col gap-6" key={i}>
                         <h3 className="text-lg font-bold">{article.title}</h3>
-                        <p className="text-sm">{article.body}</p>
-                    </li>
+                        <div className="flex items-center gap-4 justify-between">
+                            <span className="font-bold">By: <span className="font-light">{article.author}</span></span>
+
+                            <span className="font-bold">On: <span className="font-light">{article.date}</span></span>
+                        </div>
+                    </div>
                 })}
             </div>
         </div>
