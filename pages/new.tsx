@@ -8,6 +8,7 @@ import useCurrentUser from "../hooks/useCurrentUser";
 import * as fcl from '@onflow/fcl'
 import AddArticle from "../cadence/transactions/AddArticle.cdc"
 import { useRouter } from "next/router";
+import { faker } from "@faker-js/faker"
 
 export default function NewArticlePage() {
     const router = useRouter()
@@ -48,6 +49,7 @@ export default function NewArticlePage() {
 
             <MdEditor modelValue={value} onChange={setValue} />
 
+            <span className="self-end -mb-6">You currently have    🪙 {faker.number.int({ min: 0, max: 100 })} tokens to publish your article</span>
             <button onClick={publishArticle} className="bg-green-500 px-12 py-4 w-fit text-white rounded-md font-bold self-end">
                 Publish on Flow!
             </button>
