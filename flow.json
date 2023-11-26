@@ -1,5 +1,6 @@
 {
 	"contracts": {
+		"ArticleStore": "cadence/contracts/ArticleStore.cdc",
 		"HelloWorld": "cadence/contracts/HelloWorld.cdc"
 	},
 	"networks": {
@@ -23,6 +24,7 @@
 	"deployments": {
 		"emulator": {
 			"default": [
+				"ArticleStore",
 				"HelloWorld"
 			]
 		}
