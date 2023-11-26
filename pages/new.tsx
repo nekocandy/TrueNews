@@ -2,11 +2,30 @@ import Head from "next/head";
 import { useState } from "react";
 import { MdEditor } from 'md-editor-rt';
 import 'md-editor-rt/lib/style.css';
+import { nanoid } from "nanoid";
+import useCurrentUser from "../hooks/useCurrentUser";
 
+import * as fcl from '@onflow/fcl'
+import AddArticle from "../cadence/transactions/AddArticle.cdc"
 
 export default function NewArticlePage() {
     const [value, setValue] = useState("");
     const [title, setTitle] = useState("");
+    const { addr } = useCurrentUser();
+
+
+    const publishArticle = async () => {
+        const JOINING_STRING = "||/-/||"
+        const articleData = `${nanoid()}${JOINING_STRING}${new Date().toISOString()}${JOINING_STRING}${title}${JOINING_STRING}${value}${JOINING_STRING}${addr}`
+
+        const transactionId = await fcl.mutate({
+            cadence: AddArticle,
+            args: (arg, t) => [arg(articleData, t.String)],
+        })
+
+        alert("Article Published!, Transaction ID: " + transactionId)
+
+    }
 
     return <div>
         <Head>
@@ -26,7 +45,7 @@ export default function NewArticlePage() {
 
             <MdEditor modelValue={value} onChange={setValue} />
 
-            <button className="bg-green-500 px-12 py-4 w-fit text-white rounded-md font-bold self-end">
+            <button onClick={publishArticle} className="bg-green-500 px-12 py-4 w-fit text-white rounded-md font-bold self-end">
                 Publish on Flow!
             </button>
         </div>
