@@ -40,8 +40,6 @@ export default function HomePage() {
         <div className='h-screen  w-full flex py-4 px-8 flex-col gap-8' >
             <h1 className="text-2xl uppercase font-bold underline">Read Articles from Directly from Reporters!</h1>
 
-            <h2 className="text-xl font-bold">Articles</h2>
-
             {
                 articles.length === 0 && <p>No Articles Found</p>
             }
