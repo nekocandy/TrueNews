@@ -34,7 +34,9 @@ export default function Navbar() {
             <button className={clsx(
                 'px-4 py-1 rounded-md text-white',
                 user.addr ? 'bg-red-400 ' : 'bg-green-400 '
-            )} onClick={fcl.unauthenticate}>
+            )} onClick={
+                user.addr ? fcl.unauthenticate : fcl.authenticate
+            }>
                 {
                     user.addr ? 'Log Out' : 'Log In'
                 }
