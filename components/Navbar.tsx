@@ -3,13 +3,14 @@ import useCurrentUser from '../hooks/useCurrentUser'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { faker } from "@faker-js/faker"
 
 export default function Navbar() {
     const user = useCurrentUser()
 
     const LINKS = [
         { name: "Home", href: "/home" },
-        { name: "Write Article", href: "/new" }
+        { name: "Write News", href: "/new" }
     ]
 
     return (
