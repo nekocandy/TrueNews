@@ -13,8 +13,7 @@ export default function Home() {
     <div className='h-screen  w-full flex items-center justify-center' >
 
       <Head>
-        <title>Marketplace</title>
-        <meta name="description" content="FCL Next Scaffold for the Flow Blockchain" />
+        <title>TrueNews</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
