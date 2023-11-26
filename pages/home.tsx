@@ -4,7 +4,7 @@ import * as fcl from '@onflow/fcl'
 import GetArticles from "../cadence/scripts/GetArticles.cdc"
 
 export default function HomePage() {
-    const [articles, setArticles] = useState<{ id: string, title: string, body: string, author: string }[]>([])
+    const [articles, setArticles] = useState<{ id: string, date: string, title: string, body: string, author: string }[]>([])
 
 
     const getArticlesFromFlowChain = async () => {
@@ -18,9 +18,10 @@ export default function HomePage() {
             const data = article.split("||||")
             return {
                 id: data[0],
-                title: data[1],
-                body: data[2],
-                author: data[3]
+                date: data[1],
+                title: data[2],
+                body: data[3],
+                author: data[4]
             }
         })
 
