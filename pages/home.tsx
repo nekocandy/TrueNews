@@ -15,7 +15,7 @@ export default function HomePage() {
         console.log({ read: res })
 
         const articles = res.map((article) => {
-            const data = article.split("||||")
+            const data = article.split("||/-/||")
             return {
                 id: data[0],
                 date: data[1],
