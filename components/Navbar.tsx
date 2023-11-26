@@ -8,7 +8,8 @@ export default function Navbar() {
     const user = useCurrentUser()
 
     const LINKS = [
-        { name: "Home", href: "/home" }
+        { name: "Home", href: "/home" },
+        { name: "Write Article", href: "/new" }
     ]
 
     return (
@@ -27,6 +28,8 @@ export default function Navbar() {
                                 <div className='hover:text-gray-700'>{link.name}</div>
                             </Link>
                         )
+                    }).map((link, i) => {
+                        return <div key={i} className='hover:text-gray-700 flex'>| {link} | </div>
                     })
                 }
             </div>
