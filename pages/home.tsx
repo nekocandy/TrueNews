@@ -37,19 +37,21 @@ export default function HomePage() {
             <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <div className='h-screen  w-full flex py-4 px-8' >
+        <div className='h-screen  w-full flex py-4 px-8 flex-col gap-8' >
             <h1 className="text-2xl uppercase font-bold underline">Read Articles from Directly from Reporters!</h1>
 
-            <div>
-                <h2 className="text-xl font-bold">Articles</h2>
-                <ul>
-                    {articles.map((article, i) => {
-                        return <li key={i}>
-                            <h3 className="text-lg font-bold">{article.title}</h3>
-                            <p className="text-sm">{article.body}</p>
-                        </li>
-                    })}
-                </ul>
+            <h2 className="text-xl font-bold">Articles</h2>
+
+            {
+                articles.length === 0 && <p>No Articles Found</p>
+            }
+            <div className="grid grid-cols-3 gap-8">
+                {articles.map((article, i) => {
+                    return <li key={i}>
+                        <h3 className="text-lg font-bold">{article.title}</h3>
+                        <p className="text-sm">{article.body}</p>
+                    </li>
+                })}
             </div>
         </div>
     </div>
